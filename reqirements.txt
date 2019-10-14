@@ -1,0 +1,6 @@
+# Function dependencies, for example:
+# package>=version
+
+requests==2.19.1
+bs4==0.0.1
+pymsteams==0.1.12
