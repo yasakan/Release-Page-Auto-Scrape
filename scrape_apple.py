@@ -30,7 +30,7 @@ def analyze_json(articles_dict):
         
         now = datetime.datetime.now()
         dt = now - product_date_formatted
-        if dt <= datetime.timedelta(hours=24):
+        if dt >= datetime.timedelta(hours=24):
             del copy_dict[product_name]
         
     return copy_dict
