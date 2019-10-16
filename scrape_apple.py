@@ -45,10 +45,9 @@ def post_teams(articles_dict):
         message = "Product: {0}<br>Updated At: {1}<br>[Web]({2})".format(articles_dict[product]['product_name'], articles_dict[product]['product_date'], articles_dict[product]['url'])
         myTeamsMessage.text(message)
         myTeamsMessage.send()
-
-def main(request):
+        
+def main(event, context):
     articles_dict = scrape()
     analyzed_dict = analyze_json(articles_dict)
     if len(analyzed_dict) > 0:
         post_teams(analyzed_dict)
-    return json.dumps(analyzed_dict, indent=2)
