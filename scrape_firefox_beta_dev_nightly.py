@@ -48,11 +48,10 @@ def post_teams(articles_dict):
         myTeamsMessage.send()
         return
 
-def main(request):
+def main(event, context):
     urls = {'nightly': 'https://www.mozilla.org/ja/firefox/nightly/notes/', 'beta': 'https://www.mozilla.org/ja/firefox/beta/notes/', 'developer edition': 'https://www.mozilla.org/ja/firefox/developer/notes/'}
 
     articles_dict = scrape(urls)
     analyzed_dict = analyze_dict(articles_dict)
     if len(analyzed_dict) > 0:
         post_teams(analyzed_dict)
-    return json.dumps(analyzed_dict, indent=2)
