@@ -1,1 +1,1 @@
-# scrape_apple
+# Release Page Auto Scraping Scripts
