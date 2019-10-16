@@ -47,9 +47,8 @@ def post_teams(articles_dict):
         myTeamsMessage.addLinkButton("Jump to Google Blog.", articles_dict[product]['url'])
         myTeamsMessage.send()
 
-def main(request):
+def main(event, context):
     articles_dict = scrape()
     analyzed_dict = analyze_dict(articles_dict)
     if len(analyzed_dict) > 0:
         post_teams(analyzed_dict)
-    return json.dumps(analyzed_dict, indent=2)
