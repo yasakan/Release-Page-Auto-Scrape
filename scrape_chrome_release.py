@@ -16,7 +16,8 @@ def scrape():
         product_name = article.find(class_='title').find('a').getText().strip()
         product_date = article.find(class_='publishdate').getText().strip()
         url = article.find(class_='title').find('a').get('href').strip()
-        articles_dict[product_name] = {'product_name': product_name, 'product_date': product_date, 'url': url}
+        if not product_name in articles_dict:
+            articles_dict[product_name] = {'product_name': product_name, 'product_date': product_date, 'url': url}
 
     return articles_dict
 
