@@ -41,8 +41,9 @@ def post_teams(articles_dict):
         myTeamsMessage = pymsteams.connectorcard(url)
         myTeamsMessage.title("【Browser】" + product + "【Chrome】")
 
-        message = "Title: {0}<br>Updated At: {1}<br>[Release Note]({2})".format(articles_dict[product]['product_name'], articles_dict[product]['product_date'], articles_dict[product]['url'])
+        message = "Title: {0}<br>Updated At: {1}".format(articles_dict[product]['product_name'], articles_dict[product]['product_date'])
         myTeamsMessage.text(message)
+        myTeamsMessage.addLinkButton("Jump to Google Blog.", articles_dict[product]['url'])
         myTeamsMessage.send()
 
 def main(request):
